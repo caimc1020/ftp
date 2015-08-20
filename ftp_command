@@ -1,0 +1,103 @@
+ftp 是一个因特网标准文件传输协议的用户接口，它允许你通远程链接上传或下载文件。
+  
+下面是ftp的一些命令行选项：  
+-p    Use passive mode for data transfers. Allows use of ftp in environments where a firewall prevents con-
+      nections from the outside world back to the client machine. Requires that the ftp server support the
+      PASV command. This is the default now for all clients (ftp and pftp) due to security concerns using
+      the PORT transfer mode.  The flag is kept for compatibility only and has no effect anymore.
+  
+      使用被动模式传输数据。当防火墙阻止外部环境链接客户端机器的时候，可以使用ftp传输数据。要求ftp服务器支持PASV命令。
+      由于使用端口传输模式的安全问题，现在所有的客户端都默认使用这个模式。这个参数被兼容了，没有任何影响。
+    
+-i    Turns off interactive prompting during multiple file transfers.
+      
+      在多文件传输过程中，关闭交互提示
+      
+-n    Restrains ftp from attempting "auto-login" upon initial connection.  If auto-login is enabled, ftp
+      will check the .netrc (see netrc(5)) file in the user's home directory for an entry describing an
+      account on the remote machine.  If no entry exists, ftp will prompt for the remote machine login name
+      (default is the user identity on the local machine), and, if necessary, prompt for a password and an
+      account with which to login.
+      
+      在初始化连接的过程中，禁止ftp自动登录连接。如果自动连接被开启，ftp会在用户的根目录下面使用.netrc 文件
+      的连接信息去连接远程主机。如果这个连接信息不存在，ftp会提示远程主机输入用户名(默认是本地服务器的用户认证)，
+      如果有必要，还会提示用户输入密码去登录。
+
+-e    Disables command editing and history support, if it was compiled into the ftp executable. Otherwise,
+      does nothing.
+      
+      如果被编译成一个ftp的可执行命令，禁止命令行的编辑和历史命令查看。否则什么也不做。
+
+-g    Disables file name globbing.
+      
+      禁止使用文件名通配符
+      
+-m    The default requires that ftp explicitly binds to the same interface for the data channel as the 
+      control channel in passive mode. Useful on multi-homed clients. This option disables this behavior.
+      
+      默认请求一个ftp的确定的端口对于相同的接口（待定）
+      
+      
+-v  Verbose option forces ftp to show all responses from the remote server, as well as report on data
+    transfer statistics.
+
+    冗长的选择强迫 ftp 显示远程服务器所有的响应和返回所有的传输数据
+
+-d  Enables debugging.
+    可以调试
+    
+    The client host with which ftp is to communicate may be specified on the command line.  If this is done,
+    ftp will immediately attempt to establish a connection to an FTP server on that host; otherwise, ftp will
+    enter its command interpreter and await instructions from the user.  When ftp is awaiting commands from the
+    user the prompt 'ftp>' is provided to the user.  The following commands are recognized by ftp:
+    
+    ftp传输的客户端主机需要在命令行指定。如果已经指定主机，ftp会快速的这个主机建立连接，否则，ftp会运行一个命令行程序，
+    等待用户的指令。命令行会显示 "ftp>" ，提示用户ftp正在等待。下面是ftp可以识别的命令：
+    
+  ! [command [args]]
+      Invoke an interactive shell on the local machine.  If there are arguments, the first is taken
+      to be a command to execute directly, with the rest of the arguments as its arguments.
+      
+      在当前服务器上面请求一个交互式的shell。
+      如果有参数，第一个参数是一个直接执行的命令，剩下的参数用来给第一个参数命令使用
+  $ macro-name [args]
+    Execute the macro macro-name that was defined with the macdef command.  Arguments are passed to the macro unglobbed.
+  
+    执行一个名称为 "mcro-name"的已经进行了宏定义的宏。所有的参数都被传递给这个宏
+ 
+  account [passwd]
+    Supply a supplemental password required by a remote system for access to resources once a login
+    has been successfully completed.  If no argument is included, the user will be prompted for an
+    account password in a non-echoing input mode.
+
+  append local-file [remote-file]
+    Append a local file to a file on the remote machine.  If remote-file is left unspecified, the
+    local file name is used in naming the remote file after being altered by any ntrans or nmap
+    setting.  File transfer uses the current settings for type, format, mode, and structure.
+
+     ascii       Set the file transfer type to network ASCII.  This is the default type.
+
+     bell        Arrange that a bell be sounded after each file transfer command is completed.
+
+     binary      Set the file transfer type to support binary image transfer.
+
+     bye         Terminate the FTP session with the remote server and exit ftp.  An end of file will also termi-
+                 nate the session and exit.
+
+     case        Toggle remote computer file name case mapping during mget commands.  When case is on (default
+                 is off), remote computer file names with all letters in upper case are written in the local
+                 directory with the letters mapped to lower case.
+
+     cd remote-directory
+                 Change the working directory on the remote machine to remote-directory.
+
+     cdup        Change the remote machine working directory to the parent of the current remote machine working
+                 directory.
+
+     chmod mode file-name
+
+   
+    
+    
+    
+
