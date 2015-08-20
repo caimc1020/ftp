@@ -1,2 +1,3 @@
 # ftp
-ftp command
+this page is record a lot of ftp command!
+you can learn about ftp command detail here...
